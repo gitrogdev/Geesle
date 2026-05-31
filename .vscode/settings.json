@@ -1,0 +1,13 @@
+{
+	"editor.tabSize": 4,
+	"editor.insertSpaces": false,
+	"eslint.useFlatConfig": true,
+	"eslint.validate": [
+    	"typescript"
+  	],
+	"eslint.workingDirectories": [
+		{
+			"mode": "auto" 
+		}
+	]
+}

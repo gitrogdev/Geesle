@@ -1,0 +1,84 @@
+import { type Client } from 'discord.js';
+
+import CommandRegistrar from './services/CommandRegistrar.js';
+import CommandRouter from './services/CommandRouter.js';
+import InteractionCreateEvent from './events/InteractionCreateEvent.js';
+import ClientReadyEvent from './events/ClientReadyEvent.js';
+import StatusCycler from './presence/StatusCycler.js';
+
+import Geesle from '../../game/Geesle.js';
+import Messenger from './services/Messenger.js';
+import DiscordBroadcaster from './services/DiscordBroadcaster.js';
+import PostgameThreadHandler from './services/PostgameThreadHandler.js';
+import AvatarCycler from './presence/AvatarCycler.js';
+import { AVATARS_PATH } from '../../config/paths.js';
+import ContentInteractionHandler from
+	'./services/interactions/ContentInteractionHandler.js';
+import GuildInteractionHandler from
+	'./services/interactions/GuildInteractionHandler.js';
+import MetaInteractionHandler from
+	'./services/interactions/MetaInteractionHandler.js';
+import SessionInteractionHandler from
+	'./services/interactions/SessionInteractionHandler.js';
+import UserInteractionHandler from
+	'./services/interactions/UserInteractionHandler.js';
+
+export default class Bot {
+	private game!: Geesle;
+	private registrar: CommandRegistrar;
+	private messenger: Messenger;
+
+	/**
+	 * Builds a new representation of the Discord bot.
+	 *
+	 * @author gitrog
+	 *
+	 * @param {string} version the version number for the application
+	 * @param {Client} client the client to bind the bot to
+	 * @param {string} token the Discord bot's secret token
+	 * @param {string} appId the application ID of the Discord application
+	 */
+	constructor(
+		public readonly version: string,
+		private client: Client,
+		token: string,
+		appId: string
+	) {
+		this.registrar = new CommandRegistrar(token, appId);
+		this.messenger = new Messenger(this.client);
+	}
+
+	/**
+	 * Binds events and builds all commands for the bot.
+	 *
+	 * @author gitrog
+	 */
+	public async register() {
+		this.game = new Geesle(
+			new DiscordBroadcaster(this.client, this.messenger),
+			new PostgameThreadHandler(this.client, this.messenger)
+		);
+
+		await this.game.ready;
+
+		const commandRouter = new CommandRouter(
+			this.registrar.register({
+				content: new ContentInteractionHandler(
+					this.game, this.messenger
+				),
+				guild: new GuildInteractionHandler(this.game, this.messenger),
+				meta: new MetaInteractionHandler(this.version, this.messenger),
+				session: new SessionInteractionHandler(
+					this.game, this.messenger
+				),
+				user: new UserInteractionHandler(this.game, this.messenger)
+			})
+		);
+
+		new InteractionCreateEvent(commandRouter).register(this.client);
+		new ClientReadyEvent([
+			new AvatarCycler(AVATARS_PATH, 900_000),
+			new StatusCycler(this.game.getStatuses(), 300_000)
+		]).register(this.client);
+	}
+}

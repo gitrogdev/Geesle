@@ -1,0 +1,19 @@
+{
+	"errors.commandgeneric": "An error occurred while running this command. Use `/support` for help or to report this issue.",
+	"errors.commandoutsideguild": "This command must be used in a Discord server!",
+	"errors.hasntplayed": "You have not played Geesle #{day} yet! Use `/geesle` to solve today's puzzle to share your results!",
+	"errors.hint.double": "You must make a guess in between receiving hints!",
+	"errors.hint.first": "You must make a guess before requesting a hint!",
+	"errors.hint.last": "This is my final clip! Make a guess using the `/guess` command!",
+	"errors.invalidguess": "Unknown song \"{guess}\"\nTry checking for spelling mistakes, or try another song. Answers are not case or punctuation dependent.",
+	"errors.lastclip": "Unable to skip clip {clip}, this is my final clip! Make a guess using the `/guess` command!",
+	"errors.nocontent": "No content found.",
+	"errors.noguess": "`/guess` command must include a guessed song! Try the `/skip` command if you're stuck!",
+	"errors.noguild": "This guild is not yet connected to Geesle! Play a game of `/geesle` and share the results to this guild with the `/share` command to connect it!",
+	"errors.nosession": "You must have an open session of Geesle to use this command! Use `/geesle` to start playing!",
+	"errors.playedtoday": "You have already played today's puzzle! Come back tomorrow to play again!",
+	"errors.repeatguess": "You have already guessed \"{guess}\". Try guessing another song.",
+	"errors.sessioncollision": "You already have an open session of Geesle.",
+	"errors.sessionfailed": "Something went wrong while opening your session. Please try again later.",
+	"errors.setnontextchannel": "This command can only be used in a text-based channel within a server."
+}

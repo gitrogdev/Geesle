@@ -1,0 +1,13 @@
+{
+	"game.contents": "Geesle currently recognizes {songs} drawn from studio albums, B-sides, singles, and other releases across Geesle and the band members' related projects.\n\nAlternate versions such as live performances or remixes are **not** counted as separate songs.*",
+	"game.correctguess": "✅ **CORRECT** ✅\n\nYou guessed the Geesle in {numGuesses}! Play again tomorrow, or share your results with your friends with the `/share` command!",
+	"game.incorrectguess": "❌ **INCORRECT** ❌\n\n\"{guess}\" was incorrect.",
+	"game.loss": "Better luck next time!",
+	"game.nospoilies": "-# Geesle is a daily guessing game in which everyone guesses the same song each day. Please avoid spoilers when discussing today's answer with other players, who may not have finished today's puzzle yet.",
+	"game.presentclip": "**Clip {clip}**:\n*Use* `/guess` *to guess the song or type* `/skip` *to try a longer clip before guessing.*",
+	"game.sessionopened": "Started a session of Geesle. Please see your Direct Messages to play.",
+	"game.skipped": "Skipping clip {clip} and advancing to the next clip.",
+	"game.recap": "**Your group is on a {streak} day streak!** {streakEmojis} Here are yesterday's results:{results}\n\n**Server average**: `{avg}`\n-# Losses are scored as a {loss} for the purpose of averaging.",
+	"game.results": "Geesle #{day}\n{sequence}\n\n-# Geesle is the ultimate Geese guessing game. Every day, players are presented with random clips from a song, and have to identify them in as few guesses as possible. Use the `/geesle` command to start today's puzzle.",
+	"game.tryagain": "Try again."
+}

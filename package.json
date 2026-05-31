@@ -1,0 +1,40 @@
+{
+	"name": "geesle",
+	"version": "0.0.0",
+	"type": "module",
+	"description": "**Geesle** is a Discord bot that hosts a daily music puzzle game functioning similar to games such as *Wordle*. Built for a small community of Geese fans, the bot presents all players with the same randomly selected audio clip from a Geese song each day. Players must identify the song in as few guesses as possible.",
+	"main": "./src/main.ts",
+	"scripts": {
+		"build": "tsc",
+		"start": "node --env-file=.env dist/main.js",
+		"deploy-commands": "node --env-file=.env dist/scripts/deploy-commands.js",
+		"shuffle": "node dist/scripts/shuffle-songs.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/gitrogdev/Geesle.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/gitrogdev/Geesle/issues"
+	},
+	"homepage": "https://github.com/gitrogdev/Geesle#readme",
+	"devDependencies": {
+		"@eslint/js": "^10.0.1",
+		"@typescript-eslint/eslint-plugin": "^8.56.0",
+		"@typescript-eslint/parser": "^8.56.0",
+		"eslint": "^10.0.1",
+		"typescript": "^5.8.3",
+		"typescript-eslint": "^8.36.0"
+	},
+	"dependencies": {
+		"discord.js": "^14",
+		"music-metadata": "^11.11.0"
+	},
+	"overrides": {
+		"minimatch": "^10.2.1",
+		"undici": "^6.23.0"
+	}
+}

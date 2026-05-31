@@ -1,0 +1,146 @@
+import type {
+	ChatInputCommandInteraction,
+	Client,
+	InteractionReplyOptions,
+	InteractionResponse,
+	Message,
+	TextBasedChannel,
+	User
+} from 'discord.js';
+
+import type { MessageOptions } from '../models/MessageOptions.js';
+import type { SafeReplyOptions } from '../models/SafeReplyOptions.js';
+import type { EditOptions } from '../models/EditOptions.js';
+import type { ReplyOptions } from '../models/ReplyOptions.js';
+import { localize } from '../../localization/i18n.js';
+
+export default class Messenger {
+	/**
+	 * Builds a new service for safely sending messages.
+	 *
+	 * @author gitrog
+	 *
+	 * @param {Client} client the Discord client to use for sending messages
+	 */
+	constructor(private client: Client) {}
+
+	/**
+	 * Safely send a direct message to a user.
+	 *
+	 * @author gitrog
+	 *
+	 * @param {User} user the user to send a direct message to
+	 * @param {MessageOptions} options the options for the payload containing
+	 * the message's contents to send to Discord
+	 *
+	 * @returns {Message | null} a promise of the message sent, or null if the
+	 * message was unable to be sent
+	 */
+	public async dm(
+		user: User,
+		options: MessageOptions
+	): Promise<Message | null> {
+		try {
+			return await user.send(options);
+		} catch (exception) {
+			console.warn(
+				`Failed to send a direct message to ${user.username}: `,
+				exception
+			);
+			return null;
+		}
+	}
+
+	/**
+	 * Safely reply to an interaction.
+	 *
+	 * @author gitrog
+	 *
+	 * @param {ChatInputCommandInteraction} interaction the interaction to
+	 * reply to
+	 * @param {SafeReplyOptions} options the options for the payload containing
+	 * the reply's contents to send to Discord
+	 *
+	 * @returns {Message | InteractionResponse | null} a promise of the message
+	 * sent, or null if the message was unable to be sent
+	 */
+	public async reply(
+		interaction: ChatInputCommandInteraction,
+		options: SafeReplyOptions
+	): Promise<Message | InteractionResponse | null> {
+		try {
+			if (interaction.deferred || interaction.replied)
+				return await interaction.editReply(options as EditOptions);
+			else return await interaction.reply(options as ReplyOptions);
+		} catch (exception) {
+			console.warn('Failed to reply to interaction: ', exception);
+			return null;
+		}
+	}
+
+	/**
+	 * Safely reply to an interaction, while localizing the contents of the
+	 * reply to the interaction's locale.
+	 *
+	 * @author gitrog
+	 *
+	 * @param {ChatInputCommandInteraction} interaction the interaction to
+	 * reply to
+	 * @param {string} key the translation key
+	 * @param localizationParams the parameters to replace within the string
+	 * @param messageParams the options for the payload containing the reply's
+	 * contents to send to Discord
+	 *
+	 * @returns {Message | InteractionResponse | null} a promise of the message
+	 * sent, or null if the message was unable to be sent
+	 */
+	public async localizedReply(
+		interaction: ChatInputCommandInteraction,
+		key: string,
+		localizationParams: Record<string, string | number> = {},
+		messageParams: InteractionReplyOptions = {}
+	): Promise<Message | InteractionResponse | null> {
+		return this.reply(interaction, {
+			content: localize(key, interaction.locale, localizationParams),
+			...messageParams
+		});
+	}
+
+	/**
+	 * Safely sends a message to a channel.
+	 *
+	 * @author gitrog
+	 *
+	 * @param {string} channelId the ID of the Discord channel to send the
+	 * message to
+	 * @param {MessageOptions} options the options for the payload containing
+	 * the message's contents to send to Discord
+	 *
+	 * @returns {Message | null} a promise of the message sent, or null if the
+	 * message was unable to be sent
+	 */
+	public async send(
+		channelId: string,
+		options: MessageOptions
+	): Promise<Message | null> {
+		try {
+			const channel = await this.client.channels.fetch(
+				channelId
+			) as TextBasedChannel;
+
+			if (!channel) throw new Error('Channel not found!');
+
+			if (!('send' in channel)) throw new Error(
+				'Channel is not text-based!'
+			);
+
+			return await channel.send(options);
+		} catch (exception) {
+			console.warn(
+				`Failed to send message to channel with ID ${channelId}: `,
+				exception
+			);
+			return null;
+		}
+	}
+}
