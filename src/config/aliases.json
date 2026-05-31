@@ -43,5 +43,20 @@
 		"5real",
 		"05real",
 		"halfreal"
+	],
+	"paysducocaine": [
+		"apdc",
+		"aupaysdelacoke",
+		"paysdelacoke",
+		"aupaysdelacocane",
+		"paysdelacocane",
+		"aupaysdelacocaine",
+		"paysdelacocaine",
+		"aupaysducoke",
+		"paysducoke",
+		"aupaysducocane",
+		"paysducocane",
+		"aupaysducocaine",
+		"paysducocaine"
 	]
 }
