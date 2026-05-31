@@ -35,5 +35,13 @@
 		"onehundohorses",
 		"100horses",
 		"hundredhorses"
+	],
+	"halfreal": [
+		"real",
+		"50real",
+		"50perecentreal",
+		"5real",
+		"05real",
+		"halfreal"
 	]
 }
