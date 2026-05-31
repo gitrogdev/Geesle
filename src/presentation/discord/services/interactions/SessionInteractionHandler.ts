@@ -5,7 +5,7 @@ import toUserIdentity from '../../mappers/to-user-identity.js';
 import ClipPresenter from '../ClipPresenter.js';
 import HintParamsBuilder from '../../builders/HintParamsBuilder.js';
 import GuessResponseBuilder from '../../builders/GuessResponseBuilder.js';
-import type Yorkle from '../../../../game/Geesle.js';
+import type Geesle from '../../../../game/Geesle.js';
 import type Messenger from '../Messenger.js';
 import { GuessResult } from '../../../../game/model/GuessResult.js';
 import { OpenSessionResult } from '../../../../game/model/OpenSessionResult.js';
@@ -25,17 +25,17 @@ export default class SessionInteractionHandler {
 
 	/**
 	 * Creates a new interface for interactions between bot commands and a
-	 * session of Yorkle.
+	 * session of Geesle.
 	 *
 	 * @author gitrog
 	 *
-	 * @param {Yorkle} game the Yorkle game for the Discord client to interact
+	 * @param {Geesle} game the Geesle game for the Discord client to interact
 	 * with
 	 * @param {Messenger} messenger the messenger interface to send messages to
 	 * Discord
 	 */
 	constructor(
-		private game: Yorkle,
+		private game: Geesle,
 		private messenger: Messenger
 	) {
 		this.clips = new ClipPresenter(this.messenger);

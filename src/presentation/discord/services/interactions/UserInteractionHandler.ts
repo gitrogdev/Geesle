@@ -1,6 +1,6 @@
 import { type ChatInputCommandInteraction } from 'discord.js';
 
-import type Yorkle from '../../../../game/Geesle.js';
+import type Geesle from '../../../../game/Geesle.js';
 import type Messenger from '../Messenger.js';
 import SequencePresenter from '../SequencePresenter.js';
 
@@ -13,17 +13,17 @@ export default class UserInteractionHandler {
 
 	/**
 	 * Creates a new interface for interactions between bot commands and the
-	 * Yorkle game pertaining to user data.
+	 * Geesle game pertaining to user data.
 	 *
 	 * @author gitrog
 	 *
-	 * @param {Yorkle} game the Yorkle game for the Discord client to interact
+	 * @param {Geesle} game the Geesle game for the Discord client to interact
 	 * with
 	 * @param {Messenger} messenger the messenger interface to send messages to
 	 * Discord
 	 */
 	constructor(
-		private game: Yorkle,
+		private game: Geesle,
 		private messenger: Messenger
 	) {}
 

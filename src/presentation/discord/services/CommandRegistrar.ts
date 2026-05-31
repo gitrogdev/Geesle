@@ -17,7 +17,6 @@ import SetGameChannelCommand from '../commands/SetGameChannelCommand.js';
 import WhenNextCommand from '../commands/WhenNextCommand.js';
 import RandomLyricCommand from '../commands/RandomLyricCommand.js';
 import GameContentCommand from '../commands/GameContentCommand.js';
-import JudgementCommand from '../commands/JudgementCommand.js';
 import GetVersionCommand from '../commands/GetVersion.js';
 import GetSupportCommand from '../commands/GetSupportCommand.js';
 import GetLocaleInfoCommand from '../commands/GetLocaleInfoCommand.js';
@@ -31,7 +30,6 @@ export default class CommandRegistrar {
 	private static readonly COMMAND_FACTORIES: CommandFactory[] = [
 		// Content commands
 		ctx => new GameContentCommand(ctx),
-		ctx => new JudgementCommand(ctx),
 		ctx => new RandomLyricCommand(ctx),
 
 		// Guild commands

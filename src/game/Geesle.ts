@@ -49,8 +49,7 @@ export default class Geesle {
 
 	/** Map of lyric file options to their associated archives. */
 	private readonly lyrics: Record<LyricOption, LyricArchive> = {
-		[LyricOption.Lyric]: new LyricArchive('lyrics.txt'),
-		[LyricOption.Judgement]: new LyricArchive('judgements.txt')
+		[LyricOption.Lyric]: new LyricArchive('lyrics.txt')
 	}
 
 	/** Promise that resolves when object initilization completes. */
