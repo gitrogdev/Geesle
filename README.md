@@ -124,7 +124,6 @@ To play Geesle, ensure your Privacy Settings allow DMs from the Geesle bot. Then
 `/nextgame` - Returns the timestamp of the next puzzle reset.
 `/content` - Returns information about the possible contents of the game.
 `/lyric` - Returns a random lyric from a song known by the bot.
-`/judgejuryexecutioner` - Seeks 8-ball style judgement from the bot, using song lyrics.
 `/version` - Gets the version of Geesle the bot is running on
 `/support` - Gets contact and project server information for help and updates.
 `/localeinfo` - Gets information about the active locale.
