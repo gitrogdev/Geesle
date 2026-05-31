@@ -170,5 +170,47 @@
 	],
 	"spacerace": [
 		"spacerace"
+	],
+	"raindance": [
+		"raindance"
+	],
+	"lowera": [
+		"lowera"
+	],
+	"fantasies": [
+		"fantasiessurvival",
+		"survival",
+		"fantasys",
+		"fantasyssurvival",
+		"fantasies"
+	],
+	"firstworldwarrior": [
+		"1worldwarrior",
+		"1stworldwarrior",
+		"firstworldwarrior"
+	],
+	"disco": [
+		"disco"
+	],
+	"projector": [
+		"projectortitletrack",
+		"projector"
+	],
+	"explodinghouse": [
+		"explodinhouse",
+		"explodinghouse"
+	],
+	"bottle": [
+		"bottle"
+	],
+	"opportunityknocking": [
+		"opportunityisknockin",
+		"opportunitysknockin",
+		"opportunitiesknockin",
+		"opportunityknockin",
+		"opportunityisknocking",
+		"opportunitysknocking",
+		"opportunitiesknocking",
+		"opportunityknocking"
 	]
 }
