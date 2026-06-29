@@ -212,5 +212,64 @@
 		"opportunitysknocking",
 		"opportunitiesknocking",
 		"opportunityknocking"
+	],
+	"rollingstones": [
+		"therollinstone",
+		"therollinstones",
+		"therollingstone",
+		"therollingstones",
+		"rollinstone",
+		"rollinstones",
+		"rollingstone",
+		"rollingstones"
+	],
+	"nausicaa": [
+		"lovewillberevealed",
+		"nausicalovewillberevealed",
+		"nausicaalovewillberevealed",
+		"lovellberevealed",
+		"nausicalovellberevealed",
+		"nausicaalovellberevealed",
+		"nausica",
+		"nausicaa"
+	],
+	"lovetakesmiles": [
+		"lovetakesmiles"
+	],
+	"drinkingage": [
+		"drinkingage"
+	],
+	"skullcancer": [
+		"canceroftheskull",
+		"cancerofskull",
+		"skullcancer"
+	],
+	"tryasimay": [
+		"tryasimay"
+	],
+	"samething": [
+		"wearethinkingthesamething",
+		"wearethinkinthesamething",
+		"werethinkingthesamething",
+		"werethinkinthesamething",
+		"samething"
+	],
+	"nina": [
+		"fieldofcops",
+		"ninafieldofcops",
+		"nina"
+	],
+	"godisreal": [
+		"0",
+		"0dollars",
+		"0dollar",
+		"zero",
+		"zerodollars",
+		"zerodollar",
+		"godisreal"
+	],
+	"cantkeepanything": [
+		"cannotkeepanything",
+		"cantkeepanything"
 	]
 }
